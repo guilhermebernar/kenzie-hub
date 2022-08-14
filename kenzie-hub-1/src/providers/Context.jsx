@@ -28,7 +28,7 @@ const ContextsProvider = ({children})=>{
     }
 
     loadUser()
-  },[])
+  },[token])
 
   async function loginUser(data) {
     console.log(data);
@@ -38,16 +38,19 @@ const ContextsProvider = ({children})=>{
 
     console.log(userResponse);
     setUser(userResponse)
+
     api.defaults.headers.authorization = `Bearer ${localToken}`
-    console.log(localToken)
-    setToken(localToken);
-    console.log(token)
-    localStorage.setItem('@kenzie-hub-1:token', token)
-    
+
     const userHash = response.data.user.id
-    const confirm = location.state?.from?.pathname && token
-    const toNavigate = confirm || `/dashboard/${userHash}`
-    navigate(toNavigate, { replace: true });
+    const toNavigate = location.state?.from?.pathname || `/dashboard/${userHash}`
+
+    if(localToken!==null){
+      setToken(localToken)
+      localStorage.setItem('@kenzie-hub-1:token', token)
+      if(localStorage.getItem('@kenzie-hub-1:token')!==null){
+        navigate(toNavigate, { replace: true });
+      } //adicionar mensagem de erro caso não receber token
+    }
   }
 
   async function registerUser(data) {

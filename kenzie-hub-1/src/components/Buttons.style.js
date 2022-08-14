@@ -8,11 +8,11 @@ background-color: var(--color-primary);
 border-color: var(--color-primary);
 border: 1px;
 border-radius: var(--border-radius);
-padding: 0.8vh;
+padding: 1vh 0 1vh 0;
 color: var(--grey-0);
 font-family: var(--font);
-font-size: var(--headline-bold);
-margin-top: 0.5vh;
+font-size: var(--headline);
+width: 100%;
 transition: 0.3s;
 &:hover{
   background-color: var(--color-primary-negative)
@@ -26,12 +26,11 @@ background-color: var(--grey-1);
 border-color: var(--grey-1);
 border: 1px;
 border-radius: var(--border-radius);
-padding: 0.8vh;
+padding: 1vh 0 1vh 0;
 color: var(--grey-0);
 font-family: var(--font);
 font-size: var(--headline);
-height: 3.5vh;
-margin-top: 0.5vh;
+width: 100%;
 transition: 0.3s;
 &:hover{
   background-color: var(--grey-3)
@@ -45,12 +44,11 @@ background-color: var(--grey-2);
 border-color: var(--grey-2);
 border: 1px;
 border-radius: var(--border-radius);
-padding: 0.8vh;
+padding: 1vh 0 1vh 0;
 color: var(--grey-0);
 font-family: var(--font);
 font-size: var(--headline);
-height: 2vh;
-margin-top: 0.5vh;
+width: 100%;
 transition: 0.3s;
 &:hover{
   background-color: var(--grey-1)

@@ -9,7 +9,7 @@ input {
 background-color: var(--grey-2);
 border: 1px solid var(--grey-0);
 border-radius: var(--border-radius);
-margin: 0 0 0.5vh 0;
+margin: 0 0 1vh 0;
 outline: none;
 color: var(--grey-0);
 height: 3.5vh;
@@ -42,7 +42,7 @@ label {
 font-size: var(--headline);
 font-family: var(--font);
 color: var(--grey-0);
-margin: 0 0 0.5vh 0;
+margin: 0 0 1vh 0;
 }
 p {
 font-size: var(--headline);

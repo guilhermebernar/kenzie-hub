@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const HeaderDashboard = styled.div`
-display: flex;
-flex-direction: row;
+display: grid;
+grid-template-columns: 1.8fr 0.2fr;
 width: 100%;
-justify-content: space-between;
 align-items: center;
 margin: 2vh 0 2vh 0;
 `
 export const Infos = styled.div`
+margin-top: 2vh;
 display: flex;
 flex-direction: column;
 width: 100%;
