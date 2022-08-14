@@ -1,14 +1,15 @@
-import logo from './logo_kenziehub.png';
+import logo from '../../assets/logo_kenziehub.png';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from '../../validators/loginUser';
 import { FormDefaut } from '../../components/Form.style';
-import { ContainerLogin, HeaderLogin, LoginTitle, MainLogin, Question } from './Login.style';
+import { ContainerLogin, HeaderLogin, LoginTitle, Question } from './Login.style';
 import { ButtonLightGray, ButtonPink } from '../../components/Buttons.style';
 import { LogoImg } from '../../components/LogoImg.style';
 import { useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthContext';
+import { Contexts } from '../../providers/Context';
 import { Link } from "react-router-dom";
+import { MainLogin } from '../../components/Backgrounds.style';
 
 const Login = ()=> {
 
@@ -17,8 +18,7 @@ const Login = ()=> {
       handleSubmit,
       formState: { errors },
     } = useForm({ resolver: yupResolver(schema) });
-
-    const {loginUser} = useContext(AuthContext)
+    const {loginUser} = useContext(Contexts)
 
     return(
         <MainLogin>

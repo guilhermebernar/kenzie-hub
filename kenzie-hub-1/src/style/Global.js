@@ -65,7 +65,7 @@ a:-webkit-any-link {
     --success: #3FE864;
     --negative: #E83F5B;
     --font: Inter;
-    --title1: bold 18px;
+    --title: bold 21px;
     --headline: 12px;
     --headline-bold: bold 12px;
     --headline-italic: italic 12px;

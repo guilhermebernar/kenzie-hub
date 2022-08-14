@@ -1,15 +1,5 @@
 import styled from "styled-components";
 
-export const MainRegister = styled.main`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-background-color: var(--grey-3);
-height: 100vh;
-width: 100%;
-`
-
 export const ContainerRegister = styled.div`
 background-color: var(--grey-2);
 padding: 4vh;
@@ -32,13 +22,14 @@ margin-bottom: 2vh;
 
 export const RegisterTitle = styled.div`
 font-family: var(--font);
-font-size: var(--title1);
+font-size: var(--title);
 color: var(--grey-0);
 margin-bottom: 2.5vh;
 display: flex;
 align-items: center;
 justify-content: center;
 `
+
 export const RegisterSubTitle = styled.span`
 display: flex;
 justify-content: center;

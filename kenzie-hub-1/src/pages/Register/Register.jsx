@@ -2,13 +2,14 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from '../../validators/registerUser';
 import { ButtonDarkGray, ButtonPink } from '../../components/Buttons.style';
-import Logo from './logo_kenziehub.png'
-import { ContainerButton, ContainerRegister, FormFields, HeaderRegister, MainRegister, RegisterSubTitle, RegisterTitle } from './Register.style';
+import Logo from '../../assets/logo_kenziehub.png'
+import { ContainerButton, ContainerRegister, FormFields, HeaderRegister, RegisterSubTitle, RegisterTitle } from './Register.style';
 import { FormDefaut } from '../../components/Form.style';
 import { LogoImg } from '../../components/LogoImg.style';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { AuthContext } from '../../contexts/AuthContext';
+import { Contexts } from '../../providers/Context';
+import { MainRegister } from '../../components/Backgrounds.style';
 
 
 
@@ -19,7 +20,7 @@ const Register = ()=>{
     formState: { errors },
   } = useForm({resolver: yupResolver(schema),});
 
-  const {registerUser} = useContext(AuthContext)
+  const {registerUser} = useContext(Contexts)
 
   return (
     <MainRegister>

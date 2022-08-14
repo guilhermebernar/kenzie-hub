@@ -1,15 +1,15 @@
 import RoutesMain from "./routes/Routes";
 import Global from "./style/Global";
 import './App.css'
-import AuthProvider from "./contexts/AuthContext";
+import ContextsProvider from "./providers/Context";
 
 function App() {
   return (
     <div className="App">
-      <AuthProvider>
+      <ContextsProvider>
         <Global/>
         <RoutesMain/>
-      </AuthProvider>
+      </ContextsProvider>
     </div>
   );
 }
