@@ -4,51 +4,47 @@ import { ButtonDarkGray } from '../../components/Buttons.style'
 import { useContext, useEffect, useState } from 'react';
 import { Contexts } from '../../providers/Context'
 import { MainDashboard } from '../../components/Backgrounds.style';
-import { HeaderDashboard, InfoCourseModule, InfoName, Infos } from './Dashboard.style';
+import { ContainerTechList, HeaderDashboard, ImgList, InfoCourseModule, InfoList, InfoName, Infos } from './Dashboard.style';
 import { LogoImg } from '../../components/LogoImg.style';
 import SetTech from './SetTech/SetTech';
+import TechBox from './TechList/TechList';
+import listNull from '../../assets/listNull.svg'
 
 const Dashboard = ()=> {
   const [ formTechs, setFormTechs ] = useState(false);
-  const [ formTechEdit, setFormTechEdit] = useState(false);
-  const [ techs, setTechs ] = useState([]);
   const { user } = useContext(Contexts);
+  console.log(user)
 
-  useEffect(()=>{
-    function insertTechs(newTechs) {
-      setTechs(newTechs)
-    }
-    insertTechs()
-
-    console.log(user)
-  }, [])
-  
-  return(
+  return (
     <MainDashboard>
       <HeaderDashboard>
-        <LogoImg src={logo} alt="Logo Kenziehub"/>
-          <Link replace to="/login">
-            <ButtonDarkGray>Sair</ButtonDarkGray>
-          </Link>
+        <LogoImg src={logo} alt='Logo Kenziehub' />
+        <Link replace to='/login'>
+          <ButtonDarkGray>Sair</ButtonDarkGray>
+        </Link>
       </HeaderDashboard>
       <Infos>
         <InfoName>Olá, {user.name}</InfoName>
         <InfoCourseModule>{user.course_module}</InfoCourseModule>
       </Infos>
-      <SetTech
-        formTechs={formTechs}
-        setFormTechs={setFormTechs}
-        techs={techs}
-        setTechs={setTechs}
-      />
-      {/* <TechList
-        techs={techs}
-        setTechs={setTechs}
-        formTechEdit={formTechEdit}
-        setFormTechEdit={setFormTechEdit}
-      /> */}
+      <SetTech formTechs={formTechs} setFormTechs={setFormTechs} />
+      {user.techs.length === 0? (
+        <ContainerTechList>
+          <InfoList>Adicione techs...</InfoList>
+          <ImgList src={listNull} alt='Homem sentado escrevendo'/>
+        </ContainerTechList>
+      ) : (
+        <ContainerTechList>
+          {user.techs.map((tech, index) => (
+            <TechBox 
+            key={index} 
+            techs={tech}
+            />
+          ))}
+        </ContainerTechList>
+      )}
     </MainDashboard>
-  )
+  );
 }
 
 export default Dashboard

@@ -7,7 +7,6 @@ const AuthRoutes = ()=> {
   const location = useLocation();
 
   if(loading) return <div>carregando...</div>
-  console.log(user)
   
   return user?
 

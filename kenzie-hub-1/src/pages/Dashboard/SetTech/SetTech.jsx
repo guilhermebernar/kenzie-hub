@@ -1,37 +1,54 @@
-import { useState } from "react"
-import { ButtonDarkGray, ButtonLightGray, ButtonPink } from "../../../components/Buttons.style"
-import{FormDefaut} from "../../../components/Form.style"
-import { Buttons, ContainerForm, ContainerFormOff, FormOffTitle, FormTitle } from "./setTech.style"
+import { ButtonDarkGray, ButtonLightGray, ButtonPink } from "../../../components/Buttons.style";
+import{FormDefaut} from "../../../components/Form.style";
+import { BlurScreen, Buttons, ContainerForm, ContainerFormOff, FormOffTitle, FormTitle } from "./setTech.style";
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useContext } from "react";
+import { Contexts } from '../../../providers/Context'
+import { schema } from '../../../validators/inputTech'
 
-const SetTech = ({formTechs, setFormTechs, techs, setTechs})=> {
-  const [title, setTitle] = useState()
-  const [status, setStatus] = useState()
+
+const SetTech = ({formTechs, setFormTechs})=> {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+  const { inputTech } = useContext(Contexts)
   
   return (<>{formTechs?(
+    <>
+    <BlurScreen></BlurScreen>
     <ContainerForm>
-      <FormDefaut>
+      <FormDefaut onSubmit={handleSubmit(inputTech)}>
         <FormTitle>Inserir Tecnologia</FormTitle>
 
-        <label htmlFor='title'>Título</label>
+        <label htmlFor='title' >Título</label>
         <input 
           name='title' 
           type='text'
-          onChange={(event) => setTitle(event.target.value)} 
-
+          {...register('title')}
           />
-        
+        <p>{errors.title?.message}</p>
+
         <label htmlFor='status'>Status</label>
-        <select name='status' onChange={(event) => setStatus(event.target.value)}>
+        <select 
+          name='status'
+          {...register('status')}
+          >
           <option value='Iniciante'>Iniciante</option>
           <option value='Intermediário'>Intermediário</option>
           <option value='Avançado'>Avançado</option>
         </select>
+        <p>{errors.status?.message}</p>
+
         <Buttons>
-            <ButtonPink>Enviar</ButtonPink>
+            <ButtonPink type='submit'>Enviar</ButtonPink>
             <ButtonDarkGray onClick={()=>setFormTechs(false)}>Fechar</ButtonDarkGray>
         </Buttons>
       </FormDefaut>
     </ContainerForm>
+    </>
   ):(
     <ContainerFormOff>
       <FormOffTitle>Tecnologias</FormOffTitle>

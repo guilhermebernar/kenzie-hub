@@ -62,8 +62,38 @@ const ContextsProvider = ({children})=>{
       navigate('/login', { replace: true });
   }
 
+  async function inputTech(data) {
+    console.log(data);
+
+      const response = await api.post('/users/techs', data)
+      const status = response.status
+      if(status===201){
+        const id = user.id
+        const newResponseUser = await api.get(`/users/${id}`)
+        console.log(newResponseUser)
+        setUser(newResponseUser.data)
+      }
+
+      console.log(response);
+  }
+
+  async function deleteTech(id) {
+    console.log(id);
+
+      const response = await api.delete(`/users/techs/${id}`)
+
+      console.log(response);
+  }
+
+  async function loadTechs() {
+      const id = user.id
+      const newResponseUser = await api.get(`/users/${id}`)
+      console.log(newResponseUser)
+      setUser(newResponseUser.data)
+    }
+
   return(
-  <Contexts.Provider value={{ user, loginUser, registerUser, loading }}>
+  <Contexts.Provider value={{ user, loginUser, registerUser, inputTech, deleteTech, loadTechs, loading }}>
     {children}
   </Contexts.Provider>
   )

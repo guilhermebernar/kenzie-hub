@@ -24,6 +24,7 @@ margin: 0 0 0.5vh 0;
 outline: none;
 color: var(--grey-0);
 height: 3.5vh;
+width: 33vh;
 font-size: var(--headline);
 font-family: var(--font);
 }
@@ -35,6 +36,7 @@ margin: 0 0 0.5vh 0;
 outline: none;
 color: var(--grey-0);
 height: 3.5vh;
+width: 33vh;
 font-size: var(--headline);
 font-family: var(--font);
 }
@@ -43,6 +45,7 @@ font-size: var(--headline);
 font-family: var(--font);
 color: var(--grey-0);
 margin: 0 0 1vh 0;
+width: 33vh;
 }
 p {
 font-size: var(--headline);
