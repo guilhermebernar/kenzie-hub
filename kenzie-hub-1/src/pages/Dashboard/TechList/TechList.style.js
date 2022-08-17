@@ -8,11 +8,12 @@ background-color: var(--grey-3);
 border-radius: var(--border-radius);
 padding: 2vh 2vh 2vh 2vh;
 align-items: center;
+width: 90%;
 @media (min-width:425px){
-min-width: 60vh;
+width: 95%;
 }
 @media (min-width:768px){
-min-width: 150vh;
+width: 90%;
 }
 `
 export const TechName = styled.span`
@@ -27,5 +28,5 @@ color: var(--grey-2);
 margin-right: 2vh;
 `
 export const IconDel = styled.img`
-height: 1.5vh;
+height: 2.2vh;
 `

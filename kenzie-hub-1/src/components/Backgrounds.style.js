@@ -26,7 +26,7 @@ flex-direction: column;
 align-items: center;
 background-color: var(--grey-3);
 min-height: 100vh;
-padding: 0 3vh 5vh 3vh;
+padding: 0 5vh 5vh 5vh;
 @media (min-width:425px){padding: 1vh 6vh 0 6vh;}
 @media (min-width:700px){padding: 2vh 15vh 0 15vh;}
 `

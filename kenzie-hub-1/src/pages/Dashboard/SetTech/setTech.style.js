@@ -22,20 +22,27 @@ font-size: 24px;
 color: var(--grey-0);
 `
 export const BlurScreen = styled.div`
+@media (min-width:768px) {
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   min-width: 100vw;
-  filter: blur(10px);
+  top: 0;
+  left: 0;
   position: absolute;
+  background-color:rgba(0, 0, 0, 0.35);
+  color: rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
 `
 export const ContainerForm = styled.div`
-margin-top: 3vh;
 background-color: var(--grey-2);
 border-radius: var(--border-radius);
 padding: 3.5vh 3.5vh 3vh 3.5vh;
 @media (min-width: 768px){
-  margin-top: 25vh;
+  margin: 15% 40%;
   position: absolute;
-  box-shadow: 0 0 5px 1000px #00000060;
+  z-index: 9999;
 }
 `
 export const FormTitle = styled.span`

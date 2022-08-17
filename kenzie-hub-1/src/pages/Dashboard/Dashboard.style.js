@@ -6,7 +6,9 @@ grid-template-columns: 1.8fr 0.2fr;
 width: 100%;
 align-items: center;
 padding: 2vh 3vh 2vh 3vh;
-box-shadow: 0px 3px 13px -5px rgb(0 0 0 / 92%);
+box-shadow: 2px 15px 36px -13px rgba(0,0,0,0.61);
+@media (min-width:425px){}
+@media (min-width:768px){}
 `
 export const Infos = styled.div`
 margin: 3vh 0 3vh 0;
@@ -36,7 +38,7 @@ margin-top: 3vh;
 background-color: var(--grey-2);
 border-radius: var(--border-radius);
 padding: 3.5vh 2vh 3vh 2vh;
-width: 90%;
+width: 100%;
 `
 export const InfoList = styled.span`
 font-family: var(--font);
@@ -45,6 +47,8 @@ color: var(--grey-0);
 `
 export const ImgList = styled.img`
 margin-top: 10vh;
-height: 30vh;
+height: 20vh;
 margin-bottom: 5vh;
+@media (min-width:425px){height: 30vh;}
+@media (min-width:726px){height: 35vh;}
 `
