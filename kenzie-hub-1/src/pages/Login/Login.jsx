@@ -3,13 +3,15 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from '../../validators/loginUser';
 import { FormDefaut } from '../../components/Form.style';
-import { ContainerLogin, HeaderLogin, LoginTitle, Question } from './Login.style';
+import { ContainerLogin, HeaderLogin, LoginArt, LoginTitle, Question } from './Login.style';
 import { ButtonLightGray, ButtonPink } from '../../components/Buttons.style';
 import { LogoImg } from '../../components/LogoImg.style';
 import { useContext } from 'react';
 import { Contexts } from '../../providers/Context';
 import { Link } from "react-router-dom";
 import { MainLogin } from '../../components/Backgrounds.style';
+import { motion } from 'framer-motion'
+import loginArt from '../../assets/loginTheme.png'
 
 const Login = ()=> {
 
@@ -19,7 +21,7 @@ const Login = ()=> {
       formState: { errors },
     } = useForm({ resolver: yupResolver(schema) });
     const {loginUser} = useContext(Contexts)
-
+    
     return(
         <MainLogin>
             <HeaderLogin>
@@ -46,10 +48,17 @@ const Login = ()=> {
                     Entrar
                   </ButtonPink>
 
+                  <motion.div
+                    animate={{ 
+                      scale: [0.1, 1]
+                    }}
+                  >
+                    <LoginArt src={loginArt} alt='Arte: Jovem sentado com notebook não'/>
+                  </motion.div>
+
                   <Question>
                     Não possui uma conta?
                   </Question>
-
                   
                     <Link to="/cadastro">
                       <ButtonLightGray>

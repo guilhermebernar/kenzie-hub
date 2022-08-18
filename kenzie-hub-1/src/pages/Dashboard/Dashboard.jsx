@@ -14,14 +14,15 @@ import logout from '../../assets/logout.png'
 const Dashboard = ()=> {
   const [ formTechs, setFormTechs ] = useState(false);
   const { user } = useContext(Contexts);
-  console.log(user)
 
   return (
     <MainDashboard>
       <HeaderDashboard>
         <LogoImg src={logo} alt='Logo Kenziehub' />
         <Link replace to='/login'>
-          <ButtonLightGray><Icon src={logout}/></ButtonLightGray>
+          <ButtonLightGray>
+            <Icon src={logout}/>
+          </ButtonLightGray>
         </Link>
       </HeaderDashboard>
       <Infos>

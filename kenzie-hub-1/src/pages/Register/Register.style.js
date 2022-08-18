@@ -5,9 +5,12 @@ background-color: var(--grey-2);
 padding: 4vh;
 border-radius: var(--border-radius);
 width: 30vh;
-height: 65vh;
+min-height: 70vh;
 @media (min-width: 425px) {
-height: 70vh;
+min-height: 80vh;
+@media (min-width: 425px) {
+min-height: 75vh;
+}
 }
 `
 

@@ -14,7 +14,7 @@ background-color: var(--grey-2);
 padding: 4vh;
 border-radius: var(--border-radius);
 width: 30vh;
-height: 40vh;
+min-height: 70%;
 `
 
 export const LoginTitle = styled.div`
@@ -30,10 +30,14 @@ justify-content: center;
 export const Question = styled.span`
 display: flex;
 justify-content: center;
-margin-top: 4vh;
+margin-top: 1vh;
 margin-bottom: 3vh;
 color: var(--grey-1);
 font-family: var(--font);
 font-size: var(--headline);
 `
 
+export const LoginArt = styled.img`
+margin-top: 2vh;
+width: 100%;
+`

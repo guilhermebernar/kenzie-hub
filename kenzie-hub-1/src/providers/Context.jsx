@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import api from "../services/api";
 import { useLocation, useNavigate } from "react-router-dom";
+import { accountCreated, fail, techPosted, wellcome } from "../components/Mensages";
 
 export const Contexts = createContext({})
 
@@ -31,9 +32,9 @@ const ContextsProvider = ({children})=>{
   },[token])
 
   async function loginUser(data) {
-    console.log(data);
-    
-    const response = await api.post('/sessions', data)
+    const response = await api.post('/sessions', data).catch(function (error) {
+      fail();
+    });
     const {user: userResponse, token: localToken} = response.data; 
 
     console.log(userResponse);
@@ -49,7 +50,8 @@ const ContextsProvider = ({children})=>{
       localStorage.setItem('@kenzie-hub-1:token', token)
       if(localStorage.getItem('@kenzie-hub-1:token')!==null){
         navigate(toNavigate, { replace: true });
-      } //adicionar mensagem de erro caso não receber token
+        wellcome()
+      }
     }
   }
 
@@ -60,6 +62,8 @@ const ContextsProvider = ({children})=>{
 
       console.log(response);
       navigate('/login', { replace: true });
+      
+      return accountCreated()
   }
 
   async function inputTech(data) {
@@ -70,11 +74,10 @@ const ContextsProvider = ({children})=>{
       if(status===201){
         const id = user.id
         const newResponseUser = await api.get(`/users/${id}`)
-        console.log(newResponseUser)
         setUser(newResponseUser.data)
+        techPosted()
       }
 
-      console.log(response);
   }
 
   async function deleteTech(id) {
@@ -88,7 +91,7 @@ const ContextsProvider = ({children})=>{
   async function loadTechs() {
       const id = user.id
       const newResponseUser = await api.get(`/users/${id}`)
-      console.log(newResponseUser)
+
       setUser(newResponseUser.data)
     }
 

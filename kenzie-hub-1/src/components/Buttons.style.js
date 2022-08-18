@@ -47,7 +47,7 @@ background-color: var(--grey-2);
 border-color: var(--grey-2);
 border: 1px;
 border-radius: var(--border-radius);
-padding: 1vh 0 1vh 0;
+padding: 1vh;
 color: var(--grey-0);
 font-family: var(--font);
 font-size: var(--headline);

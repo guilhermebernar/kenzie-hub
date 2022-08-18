@@ -11,8 +11,6 @@ import { useContext } from 'react';
 import { Contexts } from '../../providers/Context';
 import { MainRegister } from '../../components/Backgrounds.style';
 
-
-
 const Register = ()=>{
   const {
     register,
