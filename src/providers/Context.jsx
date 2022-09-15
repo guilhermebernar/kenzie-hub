@@ -56,11 +56,7 @@ const ContextsProvider = ({children})=>{
   }
 
   async function registerUser(data) {
-    console.log(data);
-
       const response = await api.post('/users', data)
-
-      console.log(response);
       navigate('/login', { replace: true });
       
       return accountCreated()
